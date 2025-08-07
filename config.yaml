@@ -1,0 +1,27 @@
+# Account Inactivity Monitor Configuration
+ad_settings:
+  domain: "your-domain.com"
+  server: "dc01.your-domain.com"
+  username: "service-account"
+  password: "your-password"
+
+m365_settings:
+  tenant_id: "your-tenant-id"
+  client_id: "your-client-id"
+  client_secret: "your-client-secret"
+
+thresholds:
+  inactive_days: 90
+  warning_days: 75
+
+email:
+  smtp_server: "smtp.your-domain.com"
+  smtp_port: 587
+  sender: "it-alerts@your-domain.com"
+  recipients:
+    - "admin@your-domain.com"
+
+cleanup:
+  auto_disable: false
+  require_approval: true
+  backup_before_delete: true
