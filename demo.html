@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Inactivity Monitor - Interactive Demo</title>
+    <link rel="stylesheet" href="https://jaquanwatson.github.io/demo-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="demo-header">
+        <div class="header-content">
+            <div class="header-text">
+                <h1><i class="fas fa-user-clock"></i> Account Inactivity Monitor</h1>
+                <p>Automated detection and management of inactive user accounts</p>
+            </div>
+            <div class="header-actions">
+                <a href="https://github.com/jaquanwatson/account-inactivity-monitor" class="github-btn" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+                <button class="refresh-btn" onclick="refreshData()">
+                    <i class="fas fa-sync-alt"></i> Refresh Data
+                </button>
+                <button class="scan-btn" onclick="runScan()">
+                    <i class="fas fa-search"></i> Scan Accounts
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard -->
+    <main class="dashboard">
+        <!-- Key Metrics -->
+        <section class="metrics-section">
+            <h2><i class="fas fa-tachometer-alt"></i> Account Overview</h2>
+            <div class="metrics-grid">
+                <div class="metric-card total">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Total Accounts</h3>
+                        <div class="metric-number">3,247</div>
+                        <div class="metric-detail">Active monitoring</div>
+                    </div>
+                </div>
+
+                <div class="metric-card inactive">
+                    <div class="metric-icon">
+                        <i class="fas fa-user-slash"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Inactive Accounts</h3>
+                        <div class="metric-number">428</div>
+                        <div class="metric-change negative">
+                            <i class="fas fa-exclamation-triangle"></i> 13.2% of total
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card risk">
+                    <div class="metric-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Security Risk</h3>
+                        <div class="metric-number">89</div>
+                        <div class="metric-detail">High-risk accounts</div>
+                    </div>
+                </div>
+
+                <div class="metric-card savings">
+                    <div class="metric-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="metric-content">
+                        <h3>Cost Savings</h3>
+                        <div class="metric-number">$12,840</div>
+                        <div class="metric-detail">Monthly potential</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activity Timeline -->
+        <section class="timeline-section">
+            <div class="section-header">
+                <h2><i class="fas fa-clock"></i> Inactivity Timeline</h2>
+                <div class="timeline-controls">
+                    <button class="timeline-btn active">30 Days</button>
+                    <button class="timeline-btn">60 Days</button>
+                    <button class="timeline-btn">90 Days</button>
+                    <button class="timeline-btn">180+ Days</button>
+                </div>
+            </div>
+            
+            <div class="timeline-chart">
+                <div class="timeline-bar">
+                    <div class="timeline-segment active" style="width: 65%;" data-tooltip="2,119 Active Users (65%)"></div>
+                    <div class="timeline-segment warning" style="width: 22%;" data-tooltip="714 Users (22%) - 30-60 days inactive"></div>
+                    <div class="timeline-segment danger" style="width: 13%;" data-tooltip="414 Users (13%) - 60+ days inactive"></div>
+                </div>
+                <div class="timeline-labels">
+                    <span class="label active">Active (0-30 days)</span>
+                    <span class="label warning">Warning (30-60 days)</span>
+                    <span class="label danger">Critical (60+ days)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risk Assessment -->
+        <section class="risk-section">
+            <div class="section-header">
+                <h2><i class="fas fa-exclamation-triangle"></i> Risk Assessment</h2>
+            </div>
+            
+            <div class="risk-grid">
+                <div class="risk-card high">
+                    <div class="risk-header">
+                        <h3>High Risk Accounts</h3>
+                        <span class="risk-count">89</span>
+                    </div>
+                    <div class="risk-details">
+                        <div class="risk-item">
+                            <i class="fas fa-crown"></i>
+                            <span>Admin privileges: 12 accounts</span>
+                        </div>
+                        <div class="risk-item">
+                            <i class="fas fa-calendar-times"></i>
+                            <span>180+ days inactive: 34 accounts</span>
+                        </div>
+                        <div class="risk-item">
+                            <i class="fas fa-key"></i>
+                            <span>Service accounts: 43 accounts</span>
+                        </div>
+                    </div>
+                    <button class="risk-action-btn high">Review High Risk</button>
+                </div>
+
+                <div class="risk-card medium">
+                    <div class="risk-header">
+                        <h3>Medium Risk Accounts</h3>
+                        <span class="risk-count">156</span>
+                    </div>
+                    <div class="risk-details">
+                        <div class="risk-item">
+                            <i class="fas fa-clock"></i>
+                            <span>90-180 days inactive</span>
+                        </div>
+                        <div class="risk-item">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Standard user privileges</span>
+                        </div>
+                        <div class="risk-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email access enabled</span>
+                        </div>
+                    </div>
+                    <button class="risk-action-btn medium">Review Medium Risk</button>
+                </div>
+
+                <div class="risk-card low">
+                    <div class="risk-header">
+                        <h3>Low Risk Accounts</h3>
+                        <span class="risk-count">183</span>
+                    </div>
+                    <div class="risk-details">
+                        <div class="risk-item">
+                            <i class="fas fa-clock"></i>
+                            <span>60-90 days inactive</span>
+                        </div>
+                        <div class="risk-item">
+                            <i class="fas fa-user"></i>
+                            <span>Limited privileges</span>
+                        </div>
+                        <div class="risk-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Recent password change</span>
+                        </div>
+                    </div>
+                    <button class="risk-action-btn low">Review Low Risk</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Management Table -->
+        <section class="accounts-section">
+            <div class="section-header">
+                <h2><i class="fas fa-users-cog"></i> Inactive Account Management</h2>
+                <div class="table-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search accounts...">
+                    </div>
+                    <select class="filter-dropdown">
+                        <option>All Risk Levels</option>
+                        <option>High Risk</option>
+                        <option>Medium Risk</option>
+                        <option>Low Risk</option>
+                    </select>
+                    <button class="export-btn">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table class="accounts-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>Account</th>
+                            <th>Department</th>
+                            <th>Last Login</th>
+                            <th>Inactive Days</th>
+                            <th>Risk Level</th>
+                            <th>Privileges</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="high-risk">
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div class="account-info">
+                                    <div class="account-avatar">JD</div>
+                                    <div>
+                                        <div class="account-name">John Doe</div>
+                                        <div class="account-email">john.doe@company.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>IT Administration</td>
+                            <td>2024-08-15</td>
+                            <td><span class="inactive-days high">187 days</span></td>
+                            <td><span class="risk-badge high">High</span></td>
+                            <td><span class="privilege-badge admin">Admin</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn disable" title="Disable Account">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                    <button class="action-btn details" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn contact" title="Contact User">
+                                        <i class="fas fa-envelope"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="medium-risk">
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div class="account-info">
+                                    <div class="account-avatar">SM</div>
+                                    <div>
+                                        <div class="account-name">Sarah Miller</div>
+                                        <div class="account-email">sarah.miller@company.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Marketing</td>
+                            <td>2024-10-22</td>
+                            <td><span class="inactive-days medium">95 days</span></td>
+                            <td><span class="risk-badge medium">Medium</span></td>
+                            <td><span class="privilege-badge user">User</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn disable" title="Disable Account">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                    <button class="action-btn details" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn contact" title="Contact User">
+                                        <i class="fas fa-envelope"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="low-risk">
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div class="account-info">
+                                    <div class="account-avatar">MJ</div>
+                                    <div>
+                                        <div class="account-name">Mike Johnson</div>
+                                        <div class="account-email">mike.johnson@company.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Sales</td>
+                            <td>2024-11-18</td>
+                            <td><span class="inactive-days low">68 days</span></td>
+                            <td><span class="risk-badge low">Low</span></td>
+                            <td><span class="privilege-badge user">User</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn notify" title="Send Notification">
+                                        <i class="fas fa-bell"></i>
+                                    </button>
+                                    <button class="action-btn details" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn contact" title="Contact User">
+                                        <i class="fas fa-envelope"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="high-risk">
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div class="account-info">
+                                    <div class="account-avatar">AL</div>
+                                    <div>
+                                        <div class="account-name">Anna Lee</div>
+                                        <div class="account-email">anna.lee@company.com</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Finance</td>
+                            <td>2024-07-03</td>
+                            <td><span class="inactive-days high">231 days</span></td>
+                            <td><span class="risk-badge high">High</span></td>
+                            <td><span class="privilege-badge service">Service</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn disable" title="Disable Account">
+                                        <i class="fas fa-ban"></i>
+                                    </button>
+                                    <button class="action-btn details" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn archive" title="Archive Account">
+                                        <i class="fas fa-archive"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="bulk-actions">
+                <button class="bulk-btn">
+                    <i class="fas fa-ban"></i> Disable Selected
+                </button>
+                <button class="bulk-btn">
+                    <i class="fas fa-envelope"></i> Notify Selected
+                </button>
+                <button class="bulk-btn">
+                    <i class="fas fa-archive"></i> Archive Selected
+                </button>
+                <button class="bulk-btn">
+                    <i class="fas fa-file-export"></i> Export Selected
+                </button>
+            </div>
+        </section>
+
+        <!-- Automation Settings -->
+        <section class="automation-section">
+            <div class="section-header">
+                <h2><i class="fas fa-robot"></i> Automation Settings</h2>
+            </div>
+            
+            <div class="automation-grid">
+                <div class="automation-card">
+                    <div class="automation-header">
+                        <h3><i class="fas fa-bell"></i> Notification Automation</h3>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="notifications" checked>
+                            <label for="notifications"></label>
+                        </div>
+                    </div>
+                    <div class="automation-content">
+                        <div class="notification-option">
+                            <label>
+                                <input type="checkbox" checked> Email notifications at 60 days
+                            </label>
+                        </div>
+                        <div class="notification-option">
+                            <label>
+                                <input type="checkbox" checked> Manager alerts at 90 days
+                            </label>
+                        </div>
+                        <div class="notification-option">
+                            <label>
+                                <input type="checkbox"> Auto-disable at 180 days
+                            </label>
+                        </div>
+                        <div class="next-run">Next scan: Tomorrow at 2:00 AM</div>
+                    </div>
+                </div>
+
+                <div class="automation-card">
+                    <div class="automation-header">
+                        <h3><i class="fas fa-shield-alt"></i> Security Actions</h3>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="security" checked>
+                            <label for="security"></label>
+                        </div>
+                    </div>
+                    <div class="automation-content">
+                        <div class="auto-action-option">
+                            <label>
+                                <input type="checkbox" checked> Remove from security groups
+                            </label>
+                        </div>
+                        <div class="auto-action-option">
+                            <label>
+                                <input type="checkbox"> Revoke admin privileges
+                            </label>
+                        </div>
+                        <div class="auto-action-option">
+                            <label>
+                                <input type="checkbox"> Archive mailbox
+                            </label>
+                        </div>
+                        <div class="warning-note">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Security actions require manual approval
+                        </div>
+                    </div>
+                </div>
+
+                <div class="automation-card">
+                    <div class="automation-header">
+                        <h3><i class="fas fa-chart-line"></i> Reporting</h3>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="reporting" checked>
+                            <label for="reporting"></label>
+                        </div>
+                    </div>
+                    <div class="automation-content">
+                        <div class="schedule-option">
+                            <label>Report Frequency</label>
+                            <select>
+                                <option>Weekly</option>
+                                <option selected>Monthly</option>
+                                <option>Quarterly</option>
+                            </select>
+                        </div>
+                        <div class="notification-recipients">
+                            <label>Recipients</label>
+                            <input type="email" placeholder="admin@company.com" value="security@company.com">
+                        </div>
+                        <div class="next-run">Next report: January 31, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Demo functionality
+        function refreshData() {
+            alert('Account data refreshed! In a real application, this would fetch the latest user activity from Active Directory and Azure AD.');
+        }
+
+        function runScan() {
+            alert('Account scan initiated! This would analyze all user accounts for login activity, privilege levels, and security risks.');
+        }
+
+        // Interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Timeline controls
+            document.querySelectorAll('.timeline-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.parentNode.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Risk action buttons
+            document.querySelectorAll('.risk-action-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const riskLevel = this.classList.contains('high') ? 'High' : 
+                                     this.classList.contains('medium') ? 'Medium' : 'Low';
+                    alert(`Reviewing ${riskLevel} risk accounts. This would open a detailed view with recommended actions.`);
+                });
+            });
+
+            // Action buttons
+            document.querySelectorAll('.action-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const action = this.title || this.textContent.trim();
+                    alert(`${action} functionality would be implemented here.`);
+                });
+            });
+
+            // Bulk actions
+            document.querySelectorAll('.bulk-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const action = this.textContent.trim();
+                    alert(`${action} functionality would be implemented here.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
