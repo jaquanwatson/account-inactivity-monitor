@@ -12,11 +12,11 @@
 
 </div>
 
-## 🛡️ Overview
+## Overview
 
 Account Inactivity Monitor is a security-focused solution that automatically detects and manages inactive user accounts across Active Directory and Microsoft 365 environments. By identifying and addressing dormant accounts, organizations can enhance their security posture, maintain compliance requirements, and optimize licensing costs.
 
-### 🌟 Key Benefits
+### Key Benefits
 
 - **Enhance Security Posture**: Reduce attack surface by removing stale accounts
 - **Reduce Licensing Costs**: Save $10K+ annually by reclaiming unused licenses
@@ -24,12 +24,12 @@ Account Inactivity Monitor is a security-focused solution that automatically det
 - **Automate Routine Tasks**: Free up IT staff for higher-value activities
 - **Comprehensive Visibility**: Gain insights across hybrid environments
 
-## ✨ Features
+## Features
 
 <table>
   <tr>
     <td width="50%">
-      <h3>🔍 Automated Detection</h3>
+      <h3>Automated Detection</h3>
       <ul>
         <li>Cross-platform account discovery (AD & M365)</li>
         <li>Customizable inactivity thresholds</li>
@@ -38,7 +38,7 @@ Account Inactivity Monitor is a security-focused solution that automatically det
       </ul>
     </td>
     <td width="50%">
-      <h3>📊 Detailed Reporting</h3>
+      <h3>Detailed Reporting</h3>
       <ul>
         <li>Comprehensive inactivity reports</li>
         <li>Cost savings calculations</li>
@@ -49,7 +49,7 @@ Account Inactivity Monitor is a security-focused solution that automatically det
   </tr>
   <tr>
     <td>
-      <h3>💰 Cost Optimization</h3>
+      <h3>Cost Optimization</h3>
       <ul>
         <li>License reclamation recommendations</li>
         <li>Automated license reassignment</li>
@@ -58,7 +58,7 @@ Account Inactivity Monitor is a security-focused solution that automatically det
       </ul>
     </td>
     <td>
-      <h3>🔒 Security Compliance</h3>
+      <h3>Security Compliance</h3>
       <ul>
         <li>Zero-trust principle enforcement</li>
         <li>Compliance audit trails</li>
@@ -69,7 +69,7 @@ Account Inactivity Monitor is a security-focused solution that automatically det
   </tr>
 </table>
 
-## 🖼️ Screenshots & Demo
+## Screenshots & Demo
 
 <div align="center">
 
@@ -83,7 +83,7 @@ Account Inactivity Monitor is a security-focused solution that automatically det
 
 </div>
 
-## 🛠️ Technical Architecture
+## Technical Architecture
 
 ```mermaid
 graph TD
@@ -115,7 +115,7 @@ graph TD
     end
 ```
 
-## 📋 Prerequisites
+## Prerequisites
 
 - PowerShell 5.1 or later
 - Microsoft Graph PowerShell SDK
@@ -125,7 +125,7 @@ graph TD
   - `AuditLog.Read.All`
   - `Directory.Read.All`
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ```powershell
 # Clone the repository
@@ -144,7 +144,7 @@ Copy-Item config.example.json config.json
 .\Start-InactivityMonitor.ps1 -DryRun
 ```
 
-## ⚙️ Configuration
+## Configuration
 
 Create a `config.json` file:
 
@@ -170,7 +170,7 @@ Create a `config.json` file:
 }
 ```
 
-## 📊 Sample Output
+## Sample Output
 
 ```
 Account Inactivity Report - 2025-01-08
@@ -195,7 +195,7 @@ Recommended Actions:
 - Monitor: 3 accounts
 ```
 
-## 🔒 Security Considerations
+## Security Considerations
 
 - **Least Privilege**: Uses minimal required permissions
 - **Dry Run Mode**: Test without making changes
@@ -203,7 +203,7 @@ Recommended Actions:
 - **Approval Workflow**: Requires explicit approval for critical actions
 - **Service Account Protection**: Automatic exclusion of critical accounts
 
-## 🧩 Advanced Features
+## Advanced Features
 
 ### Custom Action Workflows
 
@@ -225,7 +225,7 @@ $executiveWorkflow = @{
 - **Power BI**: Advanced reporting and dashboards
 - **Microsoft Teams**: Action notifications and approvals
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please follow these steps:
 
@@ -235,11 +235,11 @@ We welcome contributions! Please follow these steps:
 4. Push to the branch (`git push origin feature/improvement`)
 5. Create a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👤 Author & Support
+## Author & Support
 
 **Jaquan Watson** - Cloud & Systems Engineer
 
