@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Jaquan Watson
+    url: mailto:jqwatson96@gmail.com
+    about: Contact the maintainer directly for urgent issues or support requests
+  - name: Documentation
+    url: https://github.com/jaquanwatson/account-inactivity-monitor#readme
+    about: Check the documentation for usage instructions and configuration details
